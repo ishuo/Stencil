@@ -18,7 +18,7 @@ public class Template {
       }
     #else
       let useBundle = bundle ??  NSBundle(path: ".")!
-      guard let url = useBundle.url(forResource: named, withExtension: nil) else {
+      guard let url = useBundle.URLForResource(named, withExtension: nil) else {
         throw NSError(domain: NSCocoaErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
       }
     #endif
