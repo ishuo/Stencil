@@ -10,7 +10,11 @@ func toString(value: Any?) -> String? {
 
 func capitalise(value: Any?) -> Any? {
   if let value = toString(value) {
-    return value.capitalizedString
+    #if !swift(>=3.0)
+      return value.capitalizedString
+    #else
+      return value.capitalized
+    #endif
   }
 
   return value
@@ -18,7 +22,11 @@ func capitalise(value: Any?) -> Any? {
 
 func uppercase(value: Any?) -> Any? {
   if let value = toString(value) {
-    return value.uppercaseString
+    #if !swift(>=3.0)
+      return value.uppercaseString
+    #else
+      return value.uppercased()
+    #endif
   }
 
   return value
@@ -26,7 +34,11 @@ func uppercase(value: Any?) -> Any? {
 
 func lowercase(value: Any?) -> Any? {
   if let value = toString(value) {
-    return value.lowercaseString
+    #if !swift(>=3.0)
+      return value.lowercaseString
+    #else
+      return value.lowercased()
+    #endif
   }
 
   return value
